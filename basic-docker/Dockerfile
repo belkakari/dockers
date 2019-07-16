@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04
+FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
 ARG PYTHON_VERSION=3.6
 
 # Setup basic packages
@@ -29,22 +29,11 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-la
      rm ~/miniconda.sh && \
      /opt/conda/bin/conda install -y python=$PYTHON_VERSION numpy pyyaml scipy ipython mkl mkl-include ninja cython typing jupyter && \
      /opt/conda/bin/conda install -y -c pytorch magma-cuda100 && \
+     /opt/conda/bin/conda install -y pytorch torchvision cudatoolkit=10.0 -c pytorch && \
      /opt/conda/bin/conda install -y -c menpo opencv && \
      /opt/conda/bin/conda clean -ya
 ENV PATH /opt/conda/bin:$PATH
-# This must be done before pip so that requirements.txt is available
-WORKDIR /opt/pytorch
-COPY . .
-
-RUN git clone --recursive https://github.com/pytorch/pytorch && cd pytorch &&\
-    git submodule sync &&\
-    git submodule update --init --recursive
-
-RUN TORCH_CUDA_ARCH_LIST="3.5 5.2 6.0 6.1 7.0+PTX" TORCH_NVCC_FLAGS="-Xfatbin -compress-all" \
-    CMAKE_PREFIX_PATH="$(dirname $(which conda))/../" \
-    python ./pytorch/setup.py install
+RUN pip install tb-nightly
 
 WORKDIR /workspace
 RUN chmod -R a+w .
-
-RUN pip install tb-nightly
