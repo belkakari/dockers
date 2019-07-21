@@ -34,7 +34,7 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-la
      /opt/conda/bin/conda install -y -c menpo opencv && \
      /opt/conda/bin/conda clean -ya
 ENV PATH /opt/conda/bin:$PATH
-RUN pip install tb-nightly mido librosa
+RUN pip install tb-nightly mido librosa matplotlib
 
 WORKDIR /workspace
 RUN chmod -R a+w .
