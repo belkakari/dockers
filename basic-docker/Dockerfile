@@ -16,6 +16,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libomp-dev \
     libegl1-mesa-dev \
     libsndfile1 \
+    sox \
+    libsox-dev \
+    libsox-fmt-all \
     pkg-config \
     wget \
     zip \
