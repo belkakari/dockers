@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     wget \
     zip \
     unzip \
+    tmux \
     cmake &&\
     rm -rf /var/lib/apt/lists/*
 
