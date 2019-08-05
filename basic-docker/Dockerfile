@@ -24,6 +24,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     zip \
     unzip \
     tmux \
+    htop \
     cmake &&\
     rm -rf /var/lib/apt/lists/*
 
@@ -33,11 +34,12 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-la
      ~/miniconda.sh -b -p /opt/conda && \
      rm ~/miniconda.sh && \
      /opt/conda/bin/conda install -y python=$PYTHON_VERSION numpy pyyaml scipy ipython mkl \
-     mkl-include ninja cython typing jupyter matplotlib && \
+     mkl-include ninja cython typing jupyter matplotlib tqdm && \
      /opt/conda/bin/conda install -y -c pytorch magma-cuda100 && \
      /opt/conda/bin/conda install -y pytorch torchvision cudatoolkit=10.0 -c pytorch && \
      /opt/conda/bin/conda install -y -c menpo opencv && \
      /opt/conda/bin/conda install -y -c conda-forge tensorboardx librosa sox && \
+     /opt/conda/bin/conda install -y -c anaconda scikit-image && \
      /opt/conda/bin/conda clean -ya
 ENV PATH /opt/conda/bin:$PATH
 RUN pip install tb-nightly kaldi_io mido
