@@ -42,11 +42,11 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-la
      /opt/conda/bin/conda install -y -c anaconda scikit-image && \
      /opt/conda/bin/conda clean -ya
 ENV PATH /opt/conda/bin:$PATH
-RUN pip install tb-nightly kaldi_io mido && \
+RUN pip install tb-nightly kaldi_io mido pretty_midi && \
     pip install --extra-index-url https://developer.download.nvidia.com/compute/redist/nightly/cuda/10.0 nvidia-dali-nightly
 
 RUN git clone https://github.com/pytorch/audio.git && \
-     cd audio && python setup.py install
+    cd audio && python setup.py install
 
 WORKDIR /
 RUN chmod -R a+w .
