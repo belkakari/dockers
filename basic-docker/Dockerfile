@@ -16,9 +16,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libomp-dev \
     libegl1-mesa-dev \
     libsndfile1 \
-    sox \
-    libsox-dev \
-    libsox-fmt-all \
     pkg-config \
     wget \
     zip \
@@ -34,7 +31,7 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-la
      ~/miniconda.sh -b -p /opt/conda && \
      rm ~/miniconda.sh && \
      /opt/conda/bin/conda install -y python=$PYTHON_VERSION numpy pyyaml scipy ipython mkl \
-     mkl-include ninja cython typing jupyter matplotlib tqdm pandas && \
+     mkl-include ninja cython typing jupyter matplotlib tqdm pandas scikit-learn && \
      /opt/conda/bin/conda install -y -c pytorch magma-cuda100 && \
      /opt/conda/bin/conda install -y pytorch torchvision cudatoolkit=10.0 -c pytorch && \
      /opt/conda/bin/conda install -y -c menpo opencv && \
@@ -42,9 +39,11 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-la
      /opt/conda/bin/conda install -y -c anaconda scikit-image && \
      /opt/conda/bin/conda clean -ya
 ENV PATH /opt/conda/bin:$PATH
-RUN pip install tb-nightly kaldi_io mido pretty_midi && \
-    pip install --extra-index-url https://developer.download.nvidia.com/compute/redist/nightly/cuda/10.0 nvidia-dali-nightly && \
-    pip install torchaudio -f https://download.pytorch.org/whl/torch_stable.html
+
+RUN pip install tb-nightly && \
+    pip install --extra-index-url https://developer.download.nvidia.com/compute/redist/nightly/cuda/10.0 nvidia-dali-nightly
+
 
 WORKDIR /
+
 RUN chmod -R a+w .
