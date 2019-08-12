@@ -22,7 +22,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     unzip \
     tmux \
     htop \
-    cmake &&\
+    cmake \
+    imagemagick &&\
     rm -rf /var/lib/apt/lists/*
 
 # Install conda
