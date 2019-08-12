@@ -41,7 +41,8 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-la
 ENV PATH /opt/conda/bin:$PATH
 
 RUN pip install tb-nightly && \
-    pip install --extra-index-url https://developer.download.nvidia.com/compute/redist/nightly/cuda/10.0 nvidia-dali-nightly
+    pip install --extra-index-url https://developer.download.nvidia.com/compute/redist/nightly/cuda/10.0 nvidia-dali-nightly && \
+    CC="cc -mavx2" pip install -U --force-reinstall pillow-simd
 
 
 WORKDIR /
