@@ -45,7 +45,6 @@ RUN pip install tb-nightly && \
     pip install --extra-index-url https://developer.download.nvidia.com/compute/redist/nightly/cuda/10.0 nvidia-dali-nightly && \
     CC="cc -mavx2" pip install -U --force-reinstall pillow-simd
 
-
 WORKDIR /
 
-RUN chmod -R a+w .
+EXPOSE 8889
