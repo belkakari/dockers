@@ -33,8 +33,6 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-4.
     /opt/conda/bin/conda clean -ya
 ENV PATH /opt/conda/bin:$PATH
 
-RUN git clone https://github.com/google/hdrnet.git
-
 RUN pip install numpy==1.12.0 \
                 Cython==0.17 && \
     pip install setproctitle==1.1.10 \
