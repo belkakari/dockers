@@ -43,3 +43,5 @@ RUN pip install numpy==1.12.0 \
                 tensorflow_gpu==1.1.0 \
                 python_gflags==3.1.1 \
                 python_magic==0.4.13
+
+RUN cd hdrnet/hdrnet && make
