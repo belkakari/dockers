@@ -1,4 +1,4 @@
-FROM nvidia/cuda:8.0-cudnn5-runtime-ubuntu16.04﻿
+FROM nvidia/cuda:8.0-cudnn5-runtime-ubuntu16.04
 ARG PYTHON_VERSION=3.5
 
 # Setup basic packages
