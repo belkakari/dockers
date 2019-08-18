@@ -35,8 +35,7 @@ ENV PATH /opt/conda/bin:$PATH
 
 RUN git clone https://github.com/google/hdrnet.git
 
-RUN cd hdrnet/hdrnet && \
-    pip install numpy==1.12.0 \
+RUN pip install numpy==1.12.0 \
                 Cython==0.17 && \
     pip install setproctitle==1.1.10 \
                 pyglib==0.1 \
