@@ -36,4 +36,4 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-4.
 ENV PATH /opt/conda/bin:$PATH
 
 RUN git clone https://github.com/google/hdrnet.git
-RUN cd hdrnet/hdrnet && pip install Cython==0.17 && pip install -r requirements.txt && make
+RUN cd hdrnet/hdrnet && pip install numpy Cython==0.17 && pip install -r requirements.txt && make
