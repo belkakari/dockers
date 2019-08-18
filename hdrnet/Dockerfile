@@ -37,8 +37,6 @@ ENV PATH /opt/conda/bin:$PATH
 
 RUN git clone https://github.com/google/hdrnet.git
 
-RUN nvidia-smi
-
 RUN cd hdrnet/hdrnet && \
     pip install numpy==1.12.0 \
                 Cython==0.17 && \
@@ -47,5 +45,4 @@ RUN cd hdrnet/hdrnet && \
                 scikit_image==0.9.3 \
                 tensorflow_gpu==1.1.0 \
                 python_gflags==3.1.1 \
-                python_magic==0.4.13 && \
-    make
+                python_magic==0.4.13
