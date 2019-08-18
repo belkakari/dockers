@@ -10,10 +10,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     libjpeg-dev \
     libpng-dev \
-    libglfw3-dev \
     libglm-dev \
     libx11-dev \
-    libomp-dev \
     libegl1-mesa-dev \
     libsndfile1 \
     pkg-config \
