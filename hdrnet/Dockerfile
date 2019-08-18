@@ -1,4 +1,4 @@
-FROM nvidia/cuda:8.0-cudnn5-runtime-ubuntu16.04
+FROM nvidia/cuda:8.0-devel-ubuntu16.04
 ARG PYTHON_VERSION=3.5
 
 # Setup basic packages
@@ -46,5 +46,3 @@ RUN cd hdrnet/hdrnet && \
                 tensorflow_gpu==1.1.0 \
                 python_gflags==3.1.1 \
                 python_magic==0.4.13
-
-RUN apt-get install -y cuda-core-8-0
