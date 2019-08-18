@@ -31,7 +31,7 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-la
      chmod +x ~/miniconda.sh && \
      ~/miniconda.sh -b -p /opt/conda && \
      rm ~/miniconda.sh && \
-     /opt/conda/bin/conda install -y python=$PYTHON_VERSION numpy && \
+     /opt/conda/bin/conda install -y python=$PYTHON_VERSION && \
      /opt/conda/bin/conda clean -ya
 ENV PATH /opt/conda/bin:$PATH
 
