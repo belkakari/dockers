@@ -46,5 +46,3 @@ RUN cd hdrnet/hdrnet && \
                 tensorflow_gpu==1.1.0 \
                 python_gflags==3.1.1 \
                 python_magic==0.4.13
-
-RUN cd hdrnet/hdrnet && make
