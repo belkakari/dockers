@@ -1,4 +1,4 @@
-FROM gleb/pytorch-basic
+FROM belkakari/pytorch-basic
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     sox \
