@@ -33,7 +33,7 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-la
      rm ~/miniconda.sh && \
      /opt/conda/bin/conda install -y python=$PYTHON_VERSION numpy pyyaml scipy ipython mkl \
      mkl-include ninja cython typing jupyter matplotlib tqdm pandas scikit-learn && \
-     /opt/conda/bin/conda install -y pytorch torchvision cudatoolkit=10.0 -c pytorch && \
+     /opt/conda/bin/conda install -y pytorch=1.2 torchvision cudatoolkit=10.0 -c pytorch && \
      /opt/conda/bin/conda install -y -c menpo opencv && \
      /opt/conda/bin/conda install -y -c conda-forge tensorboardx && \
      /opt/conda/bin/conda install -y -c anaconda scikit-image && \
