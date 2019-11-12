@@ -37,12 +37,15 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-la
      /opt/conda/bin/conda install -y -c menpo opencv && \
      /opt/conda/bin/conda install -y -c conda-forge tensorboardx && \
      /opt/conda/bin/conda install -y -c anaconda scikit-image && \
-     /opt/conda/bin/conda clean -ya
+     /opt/conda/bin/conda clean -ya && rm -rf /var/lib/apt/lists/*
 ENV PATH /opt/conda/bin:$PATH
 
 RUN pip install tb-nightly && \
     pip install --extra-index-url https://developer.download.nvidia.com/compute/redist/nightly/cuda/10.0 nvidia-dali-nightly && \
-    CC="cc -mavx2" pip install -U --force-reinstall pillow-simd
+    CC="cc -mavx2" pip install -U --force-reinstall pillow-simd && \
+    rm -rf /var/lib/apt/lists/*
+    
+RUN apt-get update && apt-get dist-upgrade
 
 WORKDIR /
 
