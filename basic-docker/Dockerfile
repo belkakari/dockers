@@ -45,8 +45,6 @@ RUN pip install tb-nightly && \
     CC="cc -mavx2" pip install -U --force-reinstall pillow-simd && \
     rm -rf /var/lib/apt/lists/*
     
-RUN apt-get update && apt-get dist-upgrade && rm -rf /var/lib/apt/lists/*
-
 WORKDIR /
 
 EXPOSE 8889
