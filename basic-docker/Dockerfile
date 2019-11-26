@@ -45,6 +45,8 @@ RUN pip install tb-nightly && \
     CC="cc -mavx2" pip install -U --force-reinstall pillow-simd && \
     rm -rf /var/lib/apt/lists/*
     
+RUN wget -O /root/.cache/torch/checkpoints/vgg19-dcbb9e9d.pth https://download.pytorch.org/models/vgg19-dcbb9e9d.pth
+    
 WORKDIR /
 
 EXPOSE 8889
