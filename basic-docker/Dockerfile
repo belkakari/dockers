@@ -7,6 +7,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     curl \
     vim \
+    ssh \
+    rsync \
     ca-certificates \
     libjpeg-dev \
     libpng-dev \
