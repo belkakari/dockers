@@ -1,5 +1,5 @@
 # Define Base Image
-FROM belkakari/pytorch-basicS
+FROM belkakari/pytorch-basic
 
 # Install dependencies
 
