@@ -43,7 +43,7 @@ RUN make install
 
 RUN cd /opt
 WORKDIR /opt
-RUN git clone https://github.com/colmap/colmap
+RUN git clone https://github.com/colmap/colmap && git checkout master
 RUN cd colmap
 WORKDIR /opt/colmap
 RUN mkdir build
