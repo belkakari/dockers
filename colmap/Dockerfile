@@ -43,17 +43,19 @@ RUN make install
 
 RUN cd /opt
 WORKDIR /opt
-RUN git clone https://github.com/colmap/colmap && git checkout master
+RUN git clone https://github.com/colmap/colmap
 RUN cd colmap
 WORKDIR /opt/colmap
 RUN mkdir build
 RUN cd build
 WORKDIR /opt/colmap/build
+# libtiff and gmp from conda env (imported from belkakari/pytorch-basic)
+# messes up colmap installation
+RUN conda uninstall libtiff gmp
 RUN cmake ..
-RUN make
+RUN make -j
 RUN make install
 RUN cd /
 
 # Install pytorch 3d stuff
-RUN pip install kornia pyrender trimesh rtree shapely &&\
-    conda install -y -c open3d-admin open3d
+RUN pip install kornia && conda install libtiff gmp
